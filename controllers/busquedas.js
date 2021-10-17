@@ -8,12 +8,8 @@ const Hospital = require('../models/hospital');
 const getTodo = async(req, res = response ) => {
 
     const busqueda = req.params.busqueda;
-    //busqueda insensible (la i), para buscar por ejemplo por el apellido
-    //sin tener que poner todo el nombre y que te salga, también no hace distincion entre mayus y minusculas
-   //TENCIÓN: si es sensible a las acentuaciones
     const regex = new RegExp( busqueda, 'i' );
 
-    //para hacer busqueda de modo simultaneo
     const [ usuarios, medicos, hospitales ] = await Promise.all([
         Usuario.find({ nombre: regex }),
         Medico.find({ nombre: regex }),

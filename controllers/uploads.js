@@ -24,7 +24,7 @@ const fileUpload = ( req, res = response ) => {
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).json({
             ok: false,
-            msg: 'No seleccionó ningún archivo'
+            msg: 'No hay ningún archivo'
         });
     }
 
